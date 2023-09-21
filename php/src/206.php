@@ -19,6 +19,8 @@
                     echo "<p> El número " . $num . " és negatiu </p>";
                 }
             }
+
+            
         ?>
     </p>
 </body>
