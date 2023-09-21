@@ -2,13 +2,17 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>220</title>
+<title>221</title>
 </head>
 <body>
-<ul>
-
      <?php
-        
-    ?></ul>
+        $suma = 0;
+        for ($i=1; $i < 11; $i++) { 
+            $suma += $i;
+            echo $i;
+            echo ($i == 10)?'=':'+';
+        }
+        echo $suma;
+    ?>
 </body>
 </html>
