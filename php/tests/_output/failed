@@ -1,6 +1,3 @@
-tests/acceptance/PhpBasicCest.php:try206WorksTest
-tests/acceptance/PhpBasicCest.php:try207WorksTest
-tests/acceptance/PhpBasicCest.php:try208WorksTest
 tests/acceptance/PhpBasicCest.php:try209WorksTest
 tests/unit/FunctionsTest.php:test240EsParell
 tests/unit/FunctionsTest.php:test240arrayAleatori
