@@ -7,10 +7,6 @@ $array = [
     'María' => 168,
     'Nuria' => 169,
     'Cintia' => 165];
-for ($i = 0; $i <= 100; $i++) {
-    $nom = rand(0, 1)?'M':'F';
-    array_push($array, $nom);
-}
 ?>
 <head>
     <meta charset="UTF-8">
@@ -18,23 +14,28 @@ for ($i = 0; $i <= 100; $i++) {
 </head>
 <body>
 <table>
-    <th>
-        Nom
-    </th>
-    <th>
-        Alçada
-    </th>
+    <thead>
+    <tr>
+        <th>
+            Nom
+        </th>
+        <th>
+            Alçada
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+        <?php
+        foreach ($array as $nom => $altura){ ?>
+            <tr>
+                <td> <?= $nom ?></td>
+                <td><?= $altura ?> </td>
+            </tr>
+            <?php
+        }
+        ?>
+    </tbody>
 </table>
-
-<tbody>
-<thead>
-<td>
-
-</td>
-</thead>
-</tbody>
-<?php
-?>
 </body>
 </html>
 
