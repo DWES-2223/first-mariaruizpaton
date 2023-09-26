@@ -6,7 +6,7 @@ function esParell(int $a) : bool {
 function arrayAleatori(int $tam, int $min, int $max) : array {
     $array = [];
     for ($i = 0; $i < $tam; $i++) {
-        $num = random_int($min, $max);
+        $num = rand($min, $max);
         array_push($array, $num);
     }
     return $array;
@@ -39,17 +39,26 @@ function concatenar(... $paraules) : string {
 }
 
 function digits(int $num) : int {
-    $a = (string)$num;
-    $nums = strlen($a);
-    return $nums;
+    return strlen((string)$num);
 }
 
 function digitsN(int $num, int $post) : int {
-    $a = (string)$num;
+    $nums = (string)$num;
+    return (int)$nums[$post];
+}
 
-    if ($post > 0 && $post < strlen($a)){
-        return (int)$a[$post];
-    } else {
-        return  -1;
+function llevaDarrere(int $num, int $cant) : int {
+    $a = (string)$num;
+    if ($cant > strlen($a)){
+        return 0;
     }
+    return (int) substr($a, 0, strlen($a) - $cant);
+}
+
+function llevaDavant(int $num, int $cant) : int {
+    $a = (string)$num;
+    if ($cant > strlen($a)){
+        return 0;
+    }
+    return (int) substr($a, $cant, strlen($a) - $cant);
 }
