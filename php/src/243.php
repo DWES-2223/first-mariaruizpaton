@@ -27,5 +27,23 @@
     <br>
     <input type="submit" value="Convertir">
 </form>
+<?php
+include_once('functions.php');
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $cantidad = floatval($_POST["cantidad"]);
+    $origen = $_POST["origen"];
+    $destino = $_POST["destino"];
+
+    if ($origen == "pesetas" && $destino == "euros") {
+        $resultado = peseta2euros($cantidad);
+        echo "$cantidad pesetas equivalen a $resultado euros.";
+    } elseif ($origen == "euros" && $destino == "pesetas") {
+        $resultado = euro2peseta($cantidad);
+        echo "$cantidad euros equivalen a $resultado pesetas.";
+    } else {
+        echo "Por favor, selecciona las unidades de origen y destino adecuadas.";
+    }
+}
+?>
 </body>
 </html>

@@ -13,6 +13,6 @@ tests/acceptance/FuncionsCest.php:try246WorksTest
 tests/acceptance/FuncionsCest.php:try251WorksTest
 tests/acceptance/PhpBasicCest.php:try209WorksTest
 tests/unit/FunctionsTest.php:test242Digits
-tests/unit/FunctionsTest.php:test242DigitsN
 tests/unit/FunctionsTest.php:test243peseta2Euros
+tests/unit/FunctionsTest.php:test242DigitsN
 tests/unit/FunctionsTest.php:test243euro2Pesetes

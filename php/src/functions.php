@@ -62,3 +62,12 @@ function llevaDavant(int $num, int $cant) : int {
     }
     return (int) substr($a, $cant, strlen($a) - $cant);
 }
+
+function peseta2euros ($cantidad, $cotizacio = 0.006) {
+    return $cantidad * $cotizacio;
+}
+
+function euro2peseta ($cantidad, $cotizacio = 166.386) {
+    return $cantidad * $cotizacio;
+}
+
