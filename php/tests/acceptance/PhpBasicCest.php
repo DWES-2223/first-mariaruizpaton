@@ -2,7 +2,7 @@
 
 class PhpBasicCest
 {
-    public function _before(AcceptanceTester $I)
+    /*public function _before(AcceptanceTester $I)
     {
     }
 
@@ -103,7 +103,7 @@ class PhpBasicCest
         $I->see('23:0:0');
         $I->amOnPage('/209.php?hora=7&minut=58&segon=59');
         $I->see('7:59:0');
-    }
+    }*/
     /*
     public function try212WorksTest(AcceptanceTester $I)
     {

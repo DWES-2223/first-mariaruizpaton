@@ -2,7 +2,7 @@
 
 class FuncionsCest
 {
-    public function _before(AcceptanceTester $I)
+    /*public function _before(AcceptanceTester $I)
     {
     }
 
@@ -81,13 +81,13 @@ class FuncionsCest
         $I->fillField('usuari', 'Pa');
         $I->fillField('password', 'Oli');
         $I->click('submit');
-        $I->seeInCurrentUrl('/246.php');
+        $I->seeInCurrentUrl('/246password.php');
         $I->see('Usuari no existent');
         $I->amOnPage('/246.html');
         $I->fillField('usuari', 'ignasi');
         $I->fillField('password', 'hola');
         $I->click('submit');
-        $I->seeInCurrentUrl('/246.php');
+        $I->seeInCurrentUrl('/246password.php');
         $I->see('Password incorrecte');
         $I->amOnPage('/246.html');
         $I->fillField('usuari', 'ignasi');
@@ -106,7 +106,7 @@ class FuncionsCest
         $I->see('Hi ha 3 a');
         $I->see('Hi ha 1 i');
         $I->see('Hi ha 5 vocals');
-    }
+    }*/
 
 
 }

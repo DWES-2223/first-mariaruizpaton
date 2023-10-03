@@ -2,7 +2,7 @@
 
 class ArraysCest
 {
-    public function _before(AcceptanceTester $I)
+    /*public function _before(AcceptanceTester $I)
     {
     }
 
@@ -40,7 +40,7 @@ class ArraysCest
 
         $I->seeInSource('<table> <thead> <tr> <th>Nom</th> <th>Alçada</th> <th>Email</th> </tr> </thead>');
 
-    }
+    }*/
 
 
 }

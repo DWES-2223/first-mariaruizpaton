@@ -1,50 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<?php
+extract($_GET);
+?>
 <head>
     <title>Información de Productos</title>
 </head>
 <body>
-<h1>Información de Productos</h1>
-
 <?php
-if (isset($_GET['quantitat'])) {
-    $quantitat = intval($_GET['quantitat']);
-    if ($quantitat> 0) {
-        echo "<h2>Lista de productos:</h2>";
+include_once('245cap.html')
+?>
 
-        for ($i = 1; $i <= $quantitat; $i++) {
-            echo "<h3>Producto $i:</h3>";
-            echo '<form method="post">';
+<?php  if (isset($quantitat) && is_numeric($quantitat) && $quantitat > 0) { ?>
+    <form method="post" action="244b.php">
+        <?php for($i=0; $i<$quantitat; $i++){ ?>
+            <div class="form-group row">
+                <label for="nom<?= $i ?>" class="col-4 col-form-label">Nom Producte</label>
+                <div class="col-8">
+                    <div class="input-group">
+                        <input id="nom<?= $i ?>" name="nom<?= $i ?>" placeholder="Nom del producte" type="text" required="required" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="preu<?= $i ?>" class="col-4 col-form-label">Preu</label>
+                <div class="col-8">
+                    <div class="input-group">
+                        <input id="preu<?= $i ?>" name="preu<?= $i ?>" placeholder="Preu del producte" type="text" required="required" class="form-control">
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
+        <div class="form-group row">
+            <div class="offset-4 col-8">
+                <button name="submit" type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
 
-            echo '<label>Nombre:</label>';
-            echo '<input type="text" name="nom[]" required>';
-            echo '<br>';
-
-            echo '<label>Precio:</label>';
-            echo '<input type="number" name="preu[]" step="0.01" required>';
-            echo '<br>';
-
-            echo '<br>';
-        }
-
-        echo '<input type="submit" value="Enviar">';
-        echo '</form>';
-    } else {
-        echo '<p>Dades incorrectes</p>';
-    }
-} else {
-    echo '<p>Dades incorrectes</p>';
+<?php } else {
+    echo 'Dades incorrectes';
 }
-
-/*if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['nom']) && isset($_POST['preu'])) {
-    $nombres = $_POST['nom'];
-    $costos = $_POST['preu'];
-
-    echo '<h2>Información de los productos ingresados:</h2>';
-    for ($i = 0; $i < count($nombres); $i++) {
-        echo "<p>Producto " . ($i + 1) . ": Nombre = " . $nombres[$i] . ", Costo = " . number_format($costos[$i], 2) . "€</p>";
-    }
-}*/
+?>
+<?php
+include_once('245peu.html')
 ?>
 </body>
 </html>

@@ -1,6 +1,6 @@
 <?php
 
-class ActivitatPHP
+class ExamenCest
 {
     public function _before(AcceptanceTester $I)
     {
@@ -9,6 +9,8 @@ class ActivitatPHP
     public function try270WorksTest(AcceptanceTester $I)
     {
         $I->amOnPage('/270.php');
+        $I->seeInSource('<!-- Capçalera de la taula --> <tr><th>Prova</th>');
+        $I->seeInSource('<!-- Cos de la taula --> <tr><td>100</td>');
         $I->seeInSource('<th>Prova</th> <th>Marca</th> <th>Atleta</th> <th>Natalici</th> <th>Club</th> <th>Data</th> <th>Lloc</th>');
         $I->seeInSource('<tr><td>1.500</td> <td>3:28.76</td> <td>Mohamed Katir El Haouzi</td> <td>1998</td> <td>Playas de Castellón</td> <td>09.07.2021</td> <td>Mónaco</td> </tr>');
     }
@@ -16,16 +18,16 @@ class ActivitatPHP
 
     public function try271WorksTest(AcceptanceTester $I)
     {
-        $I->amOnPage('/271a.php');
+        $I->amOnPage('/271.php');
         $I->see('Prova');
         $I->see('Marca');
         $I->seeInSource('<input id="natalici" name="natalici" placeholder="Any de naixement" type="text" class="form-control">');
         $I->dontSee('La prova 500 no existeix en la llista de records oficials de la FEA');
-        $I->amOnPage('/271a.php');
+        $I->amOnPage('/271.php');
         $I->fillField('prova', 500);
         $I->click('submit');
         $I->see('La prova 500 no existeix en la llista de records oficials de la FEA');
-        $I->amOnPage('/271a.php');
+        $I->amOnPage('/271.php');
         $I->fillField('prova', 200);
         $I->fillField('marca', '19:20');
         $I->fillField('atleta', 'Ignasi Gomis Mullor');
@@ -47,8 +49,10 @@ class ActivitatPHP
         $I->see('Club amb més títols: Playas de Castellón');
         $I->see('Persona amb més records: Bruno Hortelano Roig');
         $I->see('Ciutat més propicia: Mónaco');
+        $I->see('Mes jove en aconsegir el record: Jordan Alejandro Diaz Fortún - 21 anys');
         $I->seeInSource('<th>Prova</th> <th>Marca</th> <th>Atleta</th> <th>Natalici</th> <th>Club</th> <th>Data</th> <th>Lloc</th>');
         $I->seeInSource('<tr><td>1.500</td> <td>3:28.76</td> <td>Mohamed Katir El Haouzi</td> <td>1998</td> <td>Playas de Castellón</td> <td>09.07.2021</td> <td>Mónaco</td> </tr>');
     }
+
 
 }
