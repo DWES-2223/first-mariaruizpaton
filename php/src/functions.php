@@ -1,16 +1,20 @@
 <?php
-function vell($array): int {
-    $a = 0;
-    for ($i = 0; $i < count($array); $i++) {
-        $cont = $array[0];
-        if (fecha_inglesa($cont) > fecha_inglesa($array[$i])){
-            $a = $i;
+function vell($array) {
+    $fechaMasAntigua = null;
+    $keyFechaMasAntigua = null;
+
+    foreach ($array as $key => $fecha) {
+        $fechaUnix = fecha_inglesa($fecha);
+        if ($fechaMasAntigua === null || $fechaUnix < $fechaMasAntigua) {
+            $fechaMasAntigua = $fechaUnix;
+            $keyFechaMasAntigua = $key;
         }
+
     }
-    return $a;
+    return $keyFechaMasAntigua;
 }
 
-function fecha_inglesa($date) : string{
+function fecha_inglesa( string $date) : string {
     $parts = explode('.', $date);
     return $parts[2] . '/' . $parts[1] . '/' . $parts[0];
 }
@@ -26,16 +30,24 @@ function any($date) : string {
 }
 
 function jove($array, $array2) {
-    $edades = [];
+    $indice = [];
+    $edadMax = PHP_INT_MAX;
+    $nataliciKeys = array_keys($array);
+    $datakeys = array_keys($array2);
     for ($i = 0; $i < count($array); $i++) {
-        $edad = any($array2[$i]) - $array[$i];
-        $edades[] = $edad;
+        $natalicikey = $nataliciKeys[$i];
+        $datakey = $datakeys[$i];
+
+        $anyNatalici = intval($array[$natalicikey]);
+        $edad = (any($array2[$datakey])) - $anyNatalici;
+
+        if ($edad < $edadMax){
+            $indice = $natalicikey;
+            $edadMax = $edad;
+        }
     }
 
-    $minEdad = min($edades);
-    $indice = array_search($minEdad, $edades);
-
-    return [$indice, $minEdad];
+    return [$indice, $edadMax];
 }
 function array_column_ext($array, $columnkey, $indexkey = null) {
     $result = array();
