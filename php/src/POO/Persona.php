@@ -1,7 +1,5 @@
 <?php
 
-namespace POO;
-
 class Persona{
     private $nom;
     private $cognoms;
@@ -72,6 +70,10 @@ class Persona{
     }
 
     public function estaJubilado() : bool {
-        return $this->getEdat() >= 65;
+        return $this->getEdat() > 66;
+    }
+
+    public static function toHtml(Persona $emp) : string {
+        return ' ';
     }
 }

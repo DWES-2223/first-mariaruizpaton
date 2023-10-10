@@ -1,6 +1,8 @@
 <?php
 
-class Persona7 {
+abstract class Person {
+    const LIMITE_EDAD = 66;
+    protected static $limite = self::LIMITE_EDAD;
     private $nom;
     private $cognoms;
     private $edat;
@@ -10,7 +12,7 @@ class Persona7 {
      * @param $cognoms
      * @param $edat
      */
-    public function __construct($nom, $cognoms, $edat = 25) {
+    public function __construct($nom, $cognoms, $edat) {
         $this->nom = $nom;
         $this->cognoms = $cognoms;
         $this->edat = $edat;
@@ -69,6 +71,16 @@ class Persona7 {
     }
 
     public function estaJubilado() : bool {
-        return $this->getEdat() > 66;
+        return $this->getEdat() > self::LIMITE_EDAD;
+    }
+
+    public function modificaLimite($nuevoLimite){
+        self::$limite = $nuevoLimite;
+    }
+
+    abstract public static function toHtml(Person $p): string;
+
+    public function __toString(): string {
+        return "<p>".$this->getNom()." ".$this->getCognoms()."</p>";
     }
 }
