@@ -61,10 +61,14 @@ class Enterprise implements JSerializable {
 
     public function toJSON(): string {
         $mapa = array();
-           foreach ($this as $clave => $valor) {
-               $mapa[$clave] = $valor;
-           }
-           return json_encode($mapa);
+        foreach ($this as $clave => $valor) {
+            if (is_array($valor)){
+                foreach ($valor as $item) {
+                    $mapa[$clave] = $item;
+                }
+            }
+        }
+        return json_encode($mapa);
     }
 
     public function toSerialize(): string {

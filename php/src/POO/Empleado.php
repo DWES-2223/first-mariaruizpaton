@@ -58,9 +58,6 @@ class Empleado extends Persona8 {
 
     public function __toString(): string {
         $padre = parent::__toString().'<ul>';
-        foreach ($this->getTelefonos() as $telefono) {
-            $padre .= "<li>$telefono</li>";
-        }
-        return $padre;
+        return $padre . ", Sueldo: " . $this->getSueldo() . ", Telefonos: " . $this->listarTelefonos();
     }
 }

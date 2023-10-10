@@ -1,6 +1,6 @@
 <?php
 
-class Employee extends Worker {
+class Employee extends Worker implements JSerializable{
 
 
     public function __construct(
@@ -44,5 +44,17 @@ class Employee extends Worker {
             
         }
         return ' ';
+    }
+
+    public function toJSON(): string {
+        $mapa = array();
+        foreach ($this as $clave => $valor) {
+            $mapa[$clave] = $valor;
+        }
+        return json_encode($mapa);
+    }
+
+    public function toSerialize(): string {
+        return serialize($this);
     }
 }

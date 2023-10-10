@@ -1,6 +1,6 @@
 <?php
 
-abstract class Person {
+abstract class Person implements JSerializable{
     const LIMITE_EDAD = 66;
     protected static $limite = self::LIMITE_EDAD;
     private $nom;

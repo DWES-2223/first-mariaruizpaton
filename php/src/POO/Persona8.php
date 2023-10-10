@@ -78,7 +78,7 @@ class Persona8 {
     }
 
     public function __toString(): string {
-        return "<p>".$this->getNom()." ".$this->getCognoms()."</p>";
+        return "Nombre: ".$this->getNom().", Apellidos: ".$this->getCognoms().", Edad:" .$this->getEdat();
     }
 
 
